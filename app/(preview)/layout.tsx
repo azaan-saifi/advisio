@@ -4,7 +4,7 @@ import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ai-sdk-preview-roundtrips.vercel.app"),
-  title: "Automatic Multiple Tool Steps Preview",
+  title: "Agent Team",
   description: "Automatically handle multiple tool steps using the AI SDK",
 };
 
