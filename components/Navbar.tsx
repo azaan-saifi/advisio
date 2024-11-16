@@ -3,7 +3,7 @@ import { SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import React from "react";
 import { GradientIcon } from "./icons";
-import { FaGraduationCap } from "react-icons/fa";
+import { FaGraduationCap } from "react-icons/fa6";
 
 const Navbar = () => {
   return (

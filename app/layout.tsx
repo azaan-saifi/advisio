@@ -6,7 +6,8 @@ import { dark } from "@clerk/themes";
 export const metadata: Metadata = {
   metadataBase: new URL("https://ai-sdk-preview-roundtrips.vercel.app"),
   title: "Advisio",
-  description: "Automatically handle multiple tool steps using the AI SDK",
+  description:
+    "Your personal boardroom of AI experts. Unlock clarity, make confident decisions, and explore new possibilities for your business.",
 };
 
 export default function RootLayout({
@@ -21,7 +22,7 @@ export default function RootLayout({
           baseTheme: dark,
         }}
       >
-        <body>{children}</body>
+        <body className="bg-dark-300">{children}</body>
       </ClerkProvider>
     </html>
   );

@@ -10,6 +10,7 @@ import { SendHorizontal } from "lucide-react";
 import { useAuth } from "@clerk/clerk-react";
 import { getUserById } from "@/lib/actions/user.action";
 import { useRouter } from "next/navigation";
+import Welcome from "@/components/Welcome";
 
 export default function Home() {
   const { userId } = useAuth();
@@ -71,12 +72,14 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-row justify-center pb-28 h-[calc(100vh-56px)] w-full bg-dark-300 pt-8">
+    <div className="flex flex-row justify-center pb-24 h-[calc(100vh-56px)] w-full bg-dark-300 pt-8">
       <div className="flex flex-col justify-between gap-4 ">
         <div
           ref={messagesContainerRef}
           className="flex flex-col gap-6 h-full w-dvw items-center overflow-y-scroll scrollbar-hide"
         >
+          {messages.length === 0 && <Welcome />}
+
           {messages.map((message) => {
             const personalityMatch = message.content.match(/^\[(.*?)\]/);
             const personality = personalityMatch
