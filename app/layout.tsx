@@ -2,6 +2,7 @@ import "./globals.css";
 import { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
+import React from "react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ai-sdk-preview-roundtrips.vercel.app"),
@@ -22,7 +23,7 @@ export default function RootLayout({
           baseTheme: dark,
         }}
       >
-        <span className="absolute inset-0 bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-500 blur-xl opacity-10 rounded-lg pointer-events-none"></span>
+        <span className="pointer-events-none absolute inset-0 rounded-lg bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-500 opacity-10 blur-xl"></span>
         <body className="">{children}</body>
       </ClerkProvider>
     </html>

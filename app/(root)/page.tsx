@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Message } from "@/components/message";
 import { useScrollToBottom } from "@/components/use-scroll-to-bottom";
 import { useChat } from "ai/react";
@@ -85,12 +85,12 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-row justify-center pb-24 h-[calc(100vh-56px)] w-full bg-dark-300 pt-8">
+    <div className="flex h-[calc(100vh-56px)] w-full flex-row justify-center bg-dark-300 pb-24 pt-8">
       {toast && <Toaster />}
       <div className="flex flex-col justify-between gap-4 ">
         <div
           ref={messagesContainerRef}
-          className="flex flex-col gap-6 h-full w-dvw items-center overflow-y-scroll scrollbar-hide"
+          className="scrollbar-hide flex h-full w-dvw flex-col items-center gap-6 overflow-y-scroll"
         >
           {messages.length === 0 && <Welcome />}
 
@@ -125,7 +125,7 @@ export default function Home() {
         </div>
 
         {isClient && (
-          <div className="fixed inset-x-0 bottom-0 w-full bg-dark-medium pb-4 sm:bottom-0 sm:pb-10">
+          <div className="fixed inset-x-0 bottom-0 w-full pb-4 sm:bottom-0 sm:pb-10">
             <div className="mx-auto px-4 sm:max-w-3xl">
               <form onSubmit={handleUserSubmit} action="">
                 <div className="relative flex max-h-52 w-full grow flex-col">
@@ -140,7 +140,7 @@ export default function Home() {
                       }
                     }}
                     placeholder="Send a message"
-                    className="min-h-[40px] w-full resize-none overflow-hidden rounded-xl border border-zinc-700 placeholder:text-light-500 bg-dark-400 py-4 pl-6 pr-16 text-[16px] text-white focus-within:outline-none"
+                    className="min-h-[40px] w-full resize-none overflow-hidden rounded-xl border border-zinc-700 bg-dark-400 py-4 pl-6 pr-16 text-[16px] text-white placeholder:text-light-500 focus-within:outline-none"
                     autoFocus
                     spellCheck={false}
                     autoComplete="off"

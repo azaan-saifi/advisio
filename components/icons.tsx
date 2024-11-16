@@ -60,7 +60,7 @@ export const CoordinatorIcon = () => {
     <TooltipProvider>
       <Tooltip delayDuration={100}>
         <TooltipTrigger>
-          <div className="border border-zinc-700 overflow-hidden rounded-full">
+          <div className="overflow-hidden rounded-full border border-zinc-700">
             <Image
               src="/co-ordinator.avif"
               alt="(Coordinator)"
@@ -69,8 +69,8 @@ export const CoordinatorIcon = () => {
             />
           </div>
         </TooltipTrigger>
-        <TooltipContent className="bg-dark-400 border border-light-500 px-1.5 py-1 mb-2">
-          <p className="text-light-500 text-[12px]">(Coordinator)</p>
+        <TooltipContent className="mb-2 border border-light-500 bg-dark-400 px-1.5 py-1">
+          <p className="text-[12px] text-light-500">(Coordinator)</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
@@ -79,7 +79,7 @@ export const CoordinatorIcon = () => {
 
 export const UserIcon = ({ picture }: { picture: string | undefined }) => {
   return (
-    <div className="border border-zinc-700 overflow-hidden rounded-full">
+    <div className="overflow-hidden rounded-full border border-zinc-700">
       <Image
         src={picture ?? "/co-ordinator.avif"}
         alt="Co-ordinator"
@@ -95,12 +95,12 @@ export const ElonIcon = () => {
     <TooltipProvider>
       <Tooltip delayDuration={100}>
         <TooltipTrigger>
-          <div className="border border-zinc-700 overflow-hidden rounded-full">
+          <div className="overflow-hidden rounded-full border border-zinc-700">
             <Image src="/elon.jpg" alt="Elon Musk" width={24} height={24} />
           </div>
         </TooltipTrigger>
-        <TooltipContent className="bg-dark-400 border border-light-500 px-1.5 py-1 mb-2">
-          <p className="text-light-500 text-[12px]">Elon Musk</p>
+        <TooltipContent className="mb-2 border border-light-500 bg-dark-400 px-1.5 py-1">
+          <p className="text-[12px] text-light-500">Elon Musk</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
@@ -112,12 +112,12 @@ export const SteveIcon = () => {
     <TooltipProvider>
       <Tooltip delayDuration={100}>
         <TooltipTrigger>
-          <div className="border border-zinc-700 overflow-hidden rounded-full">
+          <div className="overflow-hidden rounded-full border border-zinc-700">
             <Image src="/steve.jpg" alt="Steve Jobs" width={24} height={24} />
           </div>
         </TooltipTrigger>
-        <TooltipContent className="bg-dark-400 border border-light-500 px-1.5 py-1 mb-2">
-          <p className="text-light-500 text-[12px]">Steve Jobs</p>
+        <TooltipContent className="mb-2 border border-light-500 bg-dark-400 px-1.5 py-1">
+          <p className="text-[12px] text-light-500">Steve Jobs</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
@@ -129,7 +129,7 @@ export const WarrenIcon = () => {
     <TooltipProvider>
       <Tooltip delayDuration={100}>
         <TooltipTrigger>
-          <div className="border border-zinc-700 overflow-hidden rounded-full">
+          <div className="overflow-hidden rounded-full border border-zinc-700">
             <Image
               src="/warren.jpg"
               alt="Warren Buffet"
@@ -138,8 +138,8 @@ export const WarrenIcon = () => {
             />
           </div>
         </TooltipTrigger>
-        <TooltipContent className="bg-dark-400 border border-light-500 px-1.5 py-1 mb-2">
-          <p className="text-light-500 text-[12px]">Warren Buffet</p>
+        <TooltipContent className="mb-2 border border-light-500 bg-dark-400 px-1.5 py-1">
+          <p className="text-[12px] text-light-500">Warren Buffet</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

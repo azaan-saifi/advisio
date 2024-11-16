@@ -27,17 +27,17 @@ export default function SignInPage() {
             {(isGlobalLoading) => (
               <>
                 <SignIn.Step name="start">
-                  <Card className="w-full border border-zinc-700 bg-dark-300 sm:w-96 text-white">
+                  <Card className="w-full border border-zinc-700 bg-dark-300 text-white sm:w-96">
                     <CardHeader>
                       <CardTitle className="flex flex-col text-center text-3xl">
-                        <p className="flex flex-col justify-center items-center">
+                        <p className="flex flex-col items-center justify-center">
                           <GradientIcon
                             icon={FaGraduationCap}
                             gradientId="graduationGradientSignin"
                             gradientColors={["#7d47e0", "#6225c5", "#4b1f96"]}
                             size={36}
                           />
-                          <span className="text-transparent bg-clip-text bg-purple-gradient font-bold">
+                          <span className="bg-purple-gradient bg-clip-text font-bold text-transparent">
                             Advisio
                           </span>
                         </p>
@@ -140,7 +140,7 @@ export default function SignInPage() {
                 </SignIn.Step>
 
                 <SignIn.Step name="choose-strategy">
-                  <Card className="w-full border border-zinc-700 bg-dark-300 sm:w-96 text-white">
+                  <Card className="w-full border border-zinc-700 bg-dark-300 text-white sm:w-96">
                     <CardHeader>
                       <CardTitle>Use another method</CardTitle>
                       <CardDescription>
@@ -175,7 +175,7 @@ export default function SignInPage() {
                         <SignIn.Action navigate="previous" asChild>
                           <Button
                             disabled={isGlobalLoading}
-                            className="rounded-[7px] border border-zinc-700 bg-dark-medium hover:bg-dark-300"
+                            className="rounded-[7px] border border-zinc-700 bg-dark-300 hover:bg-dark-300"
                           >
                             <Clerk.Loading>
                               {(isLoading) => {
@@ -195,7 +195,7 @@ export default function SignInPage() {
 
                 <SignIn.Step name="verifications">
                   <SignIn.Strategy name="password">
-                    <Card className="w-full border-zinc-700 bg-dark-300 sm:w-96 text-white">
+                    <Card className="w-full border-zinc-700 bg-dark-300 text-white sm:w-96">
                       <CardHeader>
                         {/* <CardTitle>Check your email</CardTitle>
                         <CardDescription>
@@ -221,7 +221,7 @@ export default function SignInPage() {
                           <SignIn.Action submit asChild>
                             <Button
                               disabled={isGlobalLoading}
-                              className="rounded-[7px] bg-purpltext-purple-600 hover:bg-bayyinah-50"
+                              className="rounded-[7px] bg-purple-gradient text-white"
                             >
                               <Clerk.Loading>
                                 {(isLoading) => {
@@ -245,7 +245,7 @@ export default function SignInPage() {
                   </SignIn.Strategy>
 
                   <SignIn.Strategy name="email_code">
-                    <Card className="w-full border border-zinc-700 bg-dark-300 sm:w-96 text-white">
+                    <Card className="w-full border border-zinc-700 bg-dark-300 text-white sm:w-96">
                       <CardHeader>
                         <CardTitle>Check your email</CardTitle>
                         <CardDescription>
@@ -282,7 +282,7 @@ export default function SignInPage() {
                                       {value}
                                       {status === "cursor" && (
                                         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                                          <div className="h-4 w-px animate-caret-blink bg-white duration-1000" />
+                                          <div className="h-4 w-px bg-white duration-1000" />
                                         </div>
                                       )}
                                     </div>
