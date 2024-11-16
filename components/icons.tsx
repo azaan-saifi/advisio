@@ -63,14 +63,14 @@ export const CoordinatorIcon = () => {
           <div className="border border-zinc-700 overflow-hidden rounded-full">
             <Image
               src="/co-ordinator.avif"
-              alt="Co-ordinator"
+              alt="(Coordinator)"
               width={24}
               height={24}
             />
           </div>
         </TooltipTrigger>
         <TooltipContent className="bg-dark-400 border border-light-500 px-1.5 py-1 mb-2">
-          <p className="text-light-500 text-[12px]">Co-ordinator</p>
+          <p className="text-light-500 text-[12px]">(Coordinator)</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

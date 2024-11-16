@@ -52,7 +52,7 @@ export const Message = ({
     >
       {role === "assistant" && (
         <div
-          className={`size-7 flex flex-col justify-center items-center flex-shrink-0 text-white `}
+          className={`size-[24px] flex flex-col justify-center items-center flex-shrink-0 text-white `}
         >
           {renderIcon()}
         </div>

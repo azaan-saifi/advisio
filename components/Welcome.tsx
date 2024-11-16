@@ -64,8 +64,8 @@ const Welcome = () => {
         />
         <InfoGrid
           image="/co-ordinator.avif"
-          alt="Mark(Co-ordinator)"
-          content="Not sure who to ask? Mark is here to steer the conversation in the right direction."
+          alt="Mark((Coordinator))"
+          content="Not sure who to ask? Mark (Coordinator) is here to steer the conversation in the right direction."
           width={30}
           height={30}
         />
