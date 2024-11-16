@@ -17,18 +17,22 @@ if (!cached) {
 }
 
 export const connectToDatabase = async () => {
-  if (cached.conn) return cached.conn;
+  if (cached.conn) {
+    console.log("MongoDB is already connected")
+    return cached.conn;
+  }
 
   if (!MONGODB_URL) throw new Error("Missing MONGODB_URL");
 
   cached.promise =
     cached.promise ||
     mongoose.connect(MONGODB_URL, {
-      dbName: "dream-navigator",
+      dbName: "advisio",
       bufferCommands: false,
     });
 
   cached.conn = await cached.promise;
+  console.log("MongoDB is connected")
 
   return cached.conn;
 };
