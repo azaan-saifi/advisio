@@ -44,7 +44,7 @@ export const Message = ({
 
   return (
     <motion.div
-      className={`flex flex-row items-end gap-4 px-4 w-full ${
+      className={`flex w-full flex-row items-end gap-4 px-4 ${
         role === "user" && "justify-end"
       } sm:max-w-3xl sm:px-8`}
       initial={{ y: 5, opacity: 0 }}
@@ -52,33 +52,33 @@ export const Message = ({
     >
       {role === "assistant" && (
         <div
-          className={`size-[24px] flex flex-col justify-center items-center flex-shrink-0 text-white `}
+          className={`flex size-[24px] shrink-0 flex-col items-center justify-center text-white `}
         >
           {renderIcon()}
         </div>
       )}
 
       <div
-        className={`flex flex-col gap-6 max-w-[85%] p-2 rounded-lg ${
+        className={`flex max-w-[85%] flex-col gap-6 rounded-lg p-2 ${
           role === "user"
-            ? "bg-purple-gradient rounded-br-none"
-            : "border border-zinc-700 bg-dark-400 rounded-bl-none"
+            ? "rounded-br-none bg-purple-gradient"
+            : "rounded-bl-none border border-zinc-700 bg-dark-400"
         }`}
       >
         {content && (
-          <div className="text-white flex flex-col gap-4">
+          <div className="flex flex-col gap-4 text-white">
             <Markdown>{content as string}</Markdown>
           </div>
         )}
       </div>
 
-      {role === "user" && (
+      {/* {role === "user" && (
         <div
           className={`size-7 flex flex-col justify-center items-center flex-shrink-0 text-zinc-400 `}
         >
           {renderIcon()}
         </div>
-      )}
+      )} */}
     </motion.div>
   );
 };
