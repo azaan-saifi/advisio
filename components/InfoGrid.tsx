@@ -17,7 +17,9 @@ const InfoGrid = ({ image, alt, content, width, height }: Props) => {
       >
         <Image src={image} alt={alt} width={width} height={height} />
       </div>
-      <p className="text-sm text-light-500">{content}</p>
+      <p className="text-sm max-sm:text-[10px] max-sm:leading-3 text-light-500">
+        {content}
+      </p>
     </div>
   );
 };

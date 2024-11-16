@@ -11,6 +11,7 @@ import { useAuth } from "@clerk/clerk-react";
 import { getUserById } from "@/lib/actions/user.action";
 import { useRouter } from "next/navigation";
 import Welcome from "@/components/Welcome";
+import Toaster from "@/components/Toaster";
 
 export default function Home() {
   const { userId } = useAuth();
@@ -18,6 +19,7 @@ export default function Home() {
   const [currentPersonality, setCurrentPersonality] = useState<
     string | undefined
   >(undefined);
+
   const router = useRouter();
 
   const [userData, setUserData] = useState<any>(null);
@@ -27,6 +29,7 @@ export default function Home() {
     useScrollToBottom<HTMLDivElement>();
 
   const [isClient, setIsClient] = useState(false);
+  const [toast, setToast] = useState(false);
 
   // Check if the component is mounted on the client
   useEffect(() => {
@@ -48,6 +51,15 @@ export default function Home() {
     fetchUserData();
   }, [userId, userData]);
 
+  useEffect(() => {
+    if (toast) {
+      const timeout = setTimeout(() => {
+        setToast(false);
+      }, 2000);
+      return () => clearTimeout(timeout);
+    }
+  }, [toast]);
+
   if (!userId && messages.length > 0) {
     router.push("/sign-in");
   }
@@ -56,6 +68,7 @@ export default function Home() {
     event.preventDefault();
 
     if (!userId) {
+      setToast(true);
       return;
     }
 
@@ -73,6 +86,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-row justify-center pb-24 h-[calc(100vh-56px)] w-full bg-dark-300 pt-8">
+      {toast && <Toaster />}
       <div className="flex flex-col justify-between gap-4 ">
         <div
           ref={messagesContainerRef}

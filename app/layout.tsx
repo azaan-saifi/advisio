@@ -22,7 +22,8 @@ export default function RootLayout({
           baseTheme: dark,
         }}
       >
-        <body className="bg-dark-300">{children}</body>
+        <span className="absolute inset-0 bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-500 blur-xl opacity-10 rounded-lg pointer-events-none"></span>
+        <body className="">{children}</body>
       </ClerkProvider>
     </html>
   );

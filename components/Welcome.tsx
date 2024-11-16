@@ -6,8 +6,7 @@ import InfoGrid from "./InfoGrid";
 const Welcome = () => {
   return (
     <div className="sm:mt-4 mt-2 w-full max-w-3xl flex flex-col gap-6 max-sm:gap-3 items-center justify-center">
-      <div className="flex items-end justify-center md:gap-4 gap-2">
-        <span className="absolute z-10 inset-0 bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-500 blur-lg opacity-10 rounded-lg"></span>
+      <div className="flex relative items-end justify-center md:gap-4 gap-2">
         <div className="text-white md:text-5xl text-3xl font-bold">
           Welcome to{" "}
         </div>
@@ -40,7 +39,7 @@ const Welcome = () => {
         decisions, and explore new possibilities for your business.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-sm:gap-3 px-5 max-sm:mt-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-sm:gap-3 px-5 max-sm:mt-5">
         <InfoGrid
           image="/elon.jpg"
           alt="Elon Musk"
