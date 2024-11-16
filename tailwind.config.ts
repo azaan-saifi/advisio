@@ -9,10 +9,12 @@ const config: Config = {
   ],
   theme: {
   	extend: {
-  		backgroundImage: {
-  			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-  			'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
-  		},
+		backgroundImage: {
+			'purple-gradient': 'linear-gradient(to right, #7d47e0, #6225c5, #4b1f96)', // From a lighter purple to your main purple, then darker
+		  },
+		  boxShadow: {
+			'purple-glow': '0 4px 10px rgba(98, 37, 197, 0.5)', // Soft purple glow shadow
+		  },
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
@@ -30,13 +32,28 @@ const config: Config = {
   				foreground: 'hsl(var(--popover-foreground))'
   			},
   			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
-  			},
+				500: "#FF7000",
+				100: "#FFF1E6",
+			},
+			light: {
+				900: "#FFFFFF",
+				800: "#F4F6F8",
+				850: "#FDFDFD",
+				700: "#DCE3F1",
+				500: "#7B8EC8",
+				400: "#858EAD",
+			},
   			secondary: {
   				DEFAULT: 'hsl(var(--secondary))',
   				foreground: 'hsl(var(--secondary-foreground))'
   			},
+			  dark: {
+				100: "#000000",
+				200: "#0F1117",
+				300: "#151821",
+				400: "#212734",
+				500: "#101012",
+			  },
   			muted: {
   				DEFAULT: 'hsl(var(--muted))',
   				foreground: 'hsl(var(--muted-foreground))'
