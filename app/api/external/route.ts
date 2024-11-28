@@ -11,7 +11,7 @@ const pinecone = new Pinecone({
 
 export async function POST(req: NextRequest) {
   try {
-    const index = pinecone.Index(process.env.PINECONE_BUSINESS_INDEX!);
+    const index = pinecone.Index(process.env.PINECONE_HORMOZI_INDEX!);
     const { ytUrl } = await req.json();
 
     const response = await YoutubeTranscript.fetchTranscript(ytUrl);
