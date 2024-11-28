@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { TextShimmer } from "./TextShimmer";
 import { IoSparklesSharp } from "react-icons/io5";
-import { Markdown } from "./Markdown";
+import { Markdown } from "./markdown";
 import { ToolInvocation } from "ai";
 import Image from "next/image";
 import { UserIcon } from "lucide-react";
