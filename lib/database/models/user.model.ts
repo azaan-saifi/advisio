@@ -6,6 +6,7 @@ export interface IUser extends Document {
   email: string;
   password?: string;
   picture: string;
+  isUploaded: boolean;
 }
 
 const userSchema = new Schema<IUser>({
@@ -28,6 +29,9 @@ const userSchema = new Schema<IUser>({
   picture: {
     type: String,
     required: true,
+  },
+  isUploaded: {
+    type: Boolean,
   },
 });
 

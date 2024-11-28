@@ -59,6 +59,7 @@ export async function POST(req: Request) {
       name: `${first_name} ${last_name ? `${last_name}` : ""}`,
       email: email_addresses[0].email_address,
       picture: image_url,
+      isUploaded: false,
     });
     return NextResponse.json({ message: "OK", user: newUser });
   }
