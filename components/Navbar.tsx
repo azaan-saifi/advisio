@@ -7,17 +7,17 @@ import { FaGraduationCap } from "react-icons/fa6";
 
 const Navbar = () => {
   return (
-    <div className="h-14 bg-dark-300 w-full px-4 py-6">
-      <div className="max-w-3xl mx-auto flex justify-between items-center">
+    <nav className="h-14 w-full bg-[#211F37] px-4 py-6">
+      <div className="mx-auto flex max-w-3xl items-center justify-between">
         <div>
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col items-center justify-center">
             <GradientIcon
               icon={FaGraduationCap}
               gradientId="graduationGradientSignin"
               gradientColors={["#7d47e0", "#6225c5", "#4b1f96"]}
               size={24}
             />
-            <span className="text-transparent bg-clip-text bg-purple-gradient font-bold text-xl">
+            <span className="bg-purple-gradient bg-clip-text text-xl font-bold text-transparent">
               Advisio
             </span>
           </div>
@@ -32,13 +32,13 @@ const Navbar = () => {
         <SignedOut>
           <Link
             href={"/sign-in"}
-            className="text-white font-medium px-4 py-1 rounded-lg bg-purple-gradient shadow-purple-glow"
+            className="bg-purple-gradient shadow-purple-glow rounded-lg px-4 py-1 font-medium text-white"
           >
             Sign in
           </Link>
         </SignedOut>
       </div>
-    </div>
+    </nav>
   );
 };
 

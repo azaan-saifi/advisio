@@ -6,6 +6,7 @@ export interface createUserProps {
   email: string;
   password?: string;
   picture: string;
+  isUploaded: boolean;
 }
 export interface updateUserProps {
   clerkId: string;

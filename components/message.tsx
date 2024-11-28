@@ -1,84 +1,118 @@
 "use client";
-
 import { motion } from "framer-motion";
-import {
-  UserIcon,
-  ElonIcon,
-  SteveIcon,
-  WarrenIcon,
-  CoordinatorIcon,
-} from "./icons";
-import { ReactNode } from "react";
-import { Markdown } from "./markdown";
+import { TextShimmer } from "./TextShimmer";
+import { IoSparklesSharp } from "react-icons/io5";
+import { Markdown } from "./Markdown";
+import { ToolInvocation } from "ai";
+import Image from "next/image";
+import { UserIcon } from "lucide-react";
 
-export const Message = ({
-  role,
-  content,
-  personality,
-  picture,
-}: {
-  role: string;
-  content: string | ReactNode;
-  personality?: string;
-  picture?: string;
-}) => {
-  const renderIcon = () => {
-    console.log(picture);
-    if (role === "assistant") {
-      switch (personality?.toLocaleLowerCase()) {
-        case "elon":
-          return <ElonIcon />;
-        case "steve":
-          return <SteveIcon />;
-        case "warren":
-          return <WarrenIcon />;
-        default:
-          return <CoordinatorIcon />;
-      }
-    } else {
-      if (picture) {
-        return <UserIcon picture={JSON.parse(picture)} />;
-      }
-    }
-  };
-
+export const ThinkingMessage = () => {
   return (
     <motion.div
-      className={`flex w-full flex-row items-end gap-4 px-4 ${
-        role === "user" && "justify-end"
-      } sm:max-w-3xl sm:px-8`}
+      className="mx-auto w-full max-w-3xl px-4 max-sm:px-2"
       initial={{ y: 5, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
     >
-      {role === "assistant" && (
-        <div
-          className={`flex size-[24px] shrink-0 flex-col items-center justify-center text-white `}
-        >
-          {renderIcon()}
+      <div className="flex w-full gap-4 rounded-lg max-sm:gap-2">
+        <div className="flex size-8 shrink-0 items-center justify-center rounded-full border border-zinc-700 text-white">
+          <IoSparklesSharp />
+        </div>
+
+        <TextShimmer duration={1.5}>Thinking...</TextShimmer>
+      </div>
+    </motion.div>
+  );
+};
+
+interface AssistantProps {
+  content: string;
+  toolInvocations: Array<ToolInvocation> | undefined;
+}
+
+export const AssistantMessage = ({
+  content,
+  toolInvocations,
+}: AssistantProps) => {
+  return (
+    <motion.div
+      className="mx-auto w-full max-w-3xl px-4 max-sm:px-2"
+      initial={{ y: 5, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+    >
+      {content && (
+        <div className="flex w-full items-start justify-start gap-4 rounded-lg max-sm:gap-2">
+          <div className="mt-2 flex size-8 shrink-0 items-center justify-center rounded-full border border-zinc-600 text-white">
+            <IoSparklesSharp />
+          </div>
+          <Markdown>{content}</Markdown>
         </div>
       )}
 
-      <div
-        className={`flex max-w-[85%] flex-col gap-6 rounded-lg p-2 ${
-          role === "user"
-            ? "rounded-br-none bg-purple-gradient"
-            : "rounded-bl-none border border-zinc-700 bg-dark-400"
-        }`}
-      >
-        {content && (
-          <div className="flex flex-col gap-4 text-white">
-            <Markdown>{content as string}</Markdown>
-          </div>
-        )}
-      </div>
+      {toolInvocations &&
+        toolInvocations.map((toolInvocation) => {
+          const { toolCallId, toolName, state } = toolInvocation;
 
-      {/* {role === "user" && (
-        <div
-          className={`size-7 flex flex-col justify-center items-center flex-shrink-0 text-zinc-400 `}
-        >
-          {renderIcon()}
+          if (state !== "result") {
+            return (
+              <div key={toolCallId}>
+                {toolName === "retrieveSpecificEventWithTimestamp" ? (
+                  <div className="flex w-full items-start justify-start gap-4 rounded-lg max-sm:gap-2">
+                    <div className="flex size-8 shrink-0 items-center justify-center rounded-full border border-zinc-600 text-white">
+                      <IoSparklesSharp />
+                    </div>
+                    <TextShimmer>Searching for the event...</TextShimmer>
+                  </div>
+                ) : toolName === "getResource" ? (
+                  <div key={toolCallId}>
+                    <div className="flex w-full items-start justify-start gap-4 rounded-lg max-sm:gap-2">
+                      <div className="flex size-8 shrink-0 items-center justify-center rounded-full border border-zinc-600 text-white">
+                        <IoSparklesSharp />
+                      </div>
+                      <TextShimmer>Searching for the resource...</TextShimmer>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            );
+          } else {
+            return null;
+          }
+        })}
+    </motion.div>
+  );
+};
+
+interface UserMessageProps {
+  content: string;
+  picture?: string;
+}
+
+export const UserMessage = ({ content, picture }: UserMessageProps) => {
+  return (
+    <motion.div
+      className="mx-auto w-full max-w-3xl px-4 max-sm:px-2"
+      initial={{ y: 5, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+    >
+      <div className="flex w-full items-start  justify-end gap-4 rounded-lg max-sm:gap-2">
+        <div className="max-w-full rounded-lg bg-purple-gradient p-3 text-white sm:max-w-[85%]">
+          {content}
         </div>
-      )} */}
+
+        <div className="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-full border border-zinc-600 text-white">
+          {picture ? (
+            <Image
+              src={JSON.parse(picture)}
+              height={32}
+              width={32}
+              alt="User"
+            />
+          ) : (
+            <UserIcon />
+          )}
+        </div>
+      </div>
     </motion.div>
   );
 };
